@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- The link-preview banner (Open Graph / Twitter card), 1200x630, in the default style (Soft, dark).
+     Rendered to assets/social/banner.png by social/render.ps1, with the site's own tokens, font and wolf. -->
+<html lang="en" data-theme="dark" data-style="soft">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+    <style>
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .banner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 430px 1fr;
+        align-items: center;
+        gap: 40px;
+        width: 1200px;
+        height: 630px;
+        padding: 56px 72px 56px 56px;
+        box-sizing: border-box;
+        background:
+          radial-gradient(42% 60% at 20% 45%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%),
+          radial-gradient(40% 55% at 88% 85%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+          var(--bg);
+        isolation: isolate;
+      }
+
+      /* A faint grid, like a canvas, fading out to the right. */
+      .banner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image:
+          linear-gradient(color-mix(in srgb, var(--text) 5%, transparent) 1px, transparent 1px),
+          linear-gradient(90deg, color-mix(in srgb, var(--text) 5%, transparent) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: linear-gradient(90deg, #000, transparent 75%);
+      }
+
+      .big-wolf {
+        width: 430px;
+        height: 430px;
+        filter: drop-shadow(0 0 28px color-mix(in srgb, var(--accent) 45%, transparent));
+      }
+
+      .big-wolf::before {
+        content: none;
+      }
+
+      .big-wolf::after {
+        mask-image: url('../assets/brand/wolf-lineart.png');
+      }
+
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 30px;
+        font-weight: 780;
+        letter-spacing: -0.03em;
+      }
+
+      .lockup .wolf-mark {
+        width: 46px;
+        height: 46px;
+      }
+
+      h1 {
+        margin: 22px 0 0;
+        font-size: 68px;
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+      }
+
+      h1 em {
+        font-style: normal;
+        color: var(--accent);
+      }
+
+      .sub {
+        margin: 18px 0 0;
+        font-size: 24px;
+        color: var(--text-muted);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 34px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px 6px 6px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--surface) 85%, transparent);
+        font-size: 17px;
+        font-weight: 650;
+      }
+
+      .chip b {
+        font-weight: 800;
+      }
+
+      .chip .app-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      .chip .app-icon svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      .url {
+        position: absolute;
+        right: 72px;
+        bottom: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <span class="big-wolf wolf-mark" aria-hidden="true"></span>
+      <div>
+        <div class="lockup"><span class="wolf-mark" aria-hidden="true"></span>Jay</div>
+        <h1>Light apps that stay <em>out of your way</em></h1>
+        <p class="sub">Open source for Windows. No accounts, no ads.</p>
+        <div class="chips">
+          <span class="chip"><span class="app-icon" data-icon="video"></span><b>Jay-C</b> Calls</span>
+          <span class="chip"><span class="app-icon" data-icon="waveform"></span><b>Jay-A</b> Audio</span>
+          <span class="chip"><span class="app-icon" data-icon="document"></span><b>Jay-E</b> Documents</span>
+          <span class="chip"><span class="app-icon" data-icon="study"></span><b>Jay-S</b> Study</span>
+          <span class="chip"><span class="app-icon" data-icon="apps"></span><b>Jay-H</b> Hub</span>
+        </div>
+      </div>
+      <span class="url">tyxmatty.github.io/jay-website</span>
+    </div>
+    <script type="module">
+      import { ICONS } from '../js/site.js';
+      for (const el of document.querySelectorAll('[data-icon]')) el.innerHTML = ICONS[el.dataset.icon];
+    </script>
+  </body>
+</html>

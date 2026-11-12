@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jay — light apps for Windows</title>
     <meta name="description" content="The Jay line: open-source apps for calls, audio, documents and study on Windows. No accounts, no ads, built on Rust." />
-    <link rel="icon" href="assets/brand/favicon.png" />
+    <link rel="canonical" href="https://tyxmatty.github.io/jay-website/" />
+    <link rel="icon" href="assets/brand/favicon.png" sizes="32x32" />
+    <link rel="icon" href="assets/brand/icon-256.png" sizes="256x256" />
+    <link rel="apple-touch-icon" href="assets/brand/icon-256.png" />
+    <!-- The Soft accent: the side bar of a Discord embed, and the browser bar on phones. -->
+    <meta name="theme-color" content="#ff9068" />
+    <!-- Link previews (Discord, WhatsApp, X, LinkedIn…). The banner is social/banner.html, rendered by social/render.ps1. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jay" />
+    <meta property="og:title" content="Jay — light apps for Windows" />
+    <meta property="og:description" content="The Jay line: open-source apps for calls, audio, documents and study on Windows. No accounts, no ads, built on Rust." />
+    <meta property="og:url" content="https://tyxmatty.github.io/jay-website/" />
+    <meta property="og:image" content="https://tyxmatty.github.io/jay-website/assets/social/banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Jay wolf in orange lines, next to &quot;Light apps that stay out of your way&quot; and the five apps: Jay-C, Jay-A, Jay-E, Jay-S and Jay-H" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
     <!-- Before first paint: the saved style, theme and language (same keys the page writes). -->
     <script>
       (function () {
@@ -14,7 +32,7 @@
         var dark = s.theme ? s.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
         var root = document.documentElement;
         root.dataset.theme = dark ? 'dark' : 'light';
-        root.dataset.style = ['calm', 'neon', 'soft'].indexOf(s.style) >= 0 ? s.style : 'calm';
+        root.dataset.style = ['calm', 'neon', 'soft'].indexOf(s.style) >= 0 ? s.style : 'soft'; // orange by default
       })();
     </script>
     <link rel="stylesheet" href="css/theme.css" />

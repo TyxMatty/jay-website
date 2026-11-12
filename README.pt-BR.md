@@ -2,7 +2,7 @@
 
 [English](README.md) · **Português**
 
-O site da linha Jay: uma página que mostra todos os apps Jay ([Jay-C](https://github.com/TyxMatty/Jay-C), [Jay-A](https://github.com/TyxMatty/Jay-A), [Jay-E](https://github.com/TyxMatty/Jay-E), [Jay-S](https://github.com/TyxMatty/Jay-S), [Jay-H](https://github.com/TyxMatty/Jay-H)), com a cara dos próprios apps: os estilos Calmo, Neon e Suave, claro e escuro, em português e inglês.
+O site da linha Jay: uma página que mostra todos os apps Jay ([Jay-C](https://github.com/TyxMatty/Jay-C), [Jay-A](https://github.com/TyxMatty/Jay-A), [Jay-E](https://github.com/TyxMatty/Jay-E), [Jay-S](https://github.com/TyxMatty/Jay-S), [Jay-H](https://github.com/TyxMatty/Jay-H)), com a cara dos próprios apps: os estilos Calmo, Neon e Suave (o Suave, laranja, por padrão), claro e escuro, em português e inglês.
 
 - **Estático, sem build:** HTML, CSS e JavaScript puro, pronto para o GitHub Pages ou qualquer hospedagem estática.
 - **Sempre os instaladores mais novos:** cada botão de download pede ao GitHub a última release do app e linka o `*_x64-setup.exe` dela. Se o GitHub não responder, o botão abre a página de releases.
@@ -17,6 +17,7 @@ O site da linha Jay: uma página que mostra todos os apps Jay ([Jay-C](https://g
 | [`css/theme.css`](css/theme.css) | Os tokens de design do Jay-C (copiados como estão) |
 | [`css/site.css`](css/site.css) | O layout da página |
 | [`assets/`](assets/) | A fonte Inter, as máscaras do lobo e uma captura de tela por app (WebP) |
+| [`social/`](social/) | O banner das prévias de link (1200×630): `banner.html` e o `render.ps1`, que o fotografa com o Edge sem janela em `assets/social/banner.png` |
 | [`test/`](test/) | Todo texto tem o português, todo app linka o próprio repositório |
 
 ## Rodando

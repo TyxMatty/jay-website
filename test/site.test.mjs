@@ -23,6 +23,15 @@ test('every app links its own repository and releases', () => {
   }
 });
 
+test('the link-preview banner exists at the size the tags announce', () => {
+  const image = html.match(/property="og:image" content="https:\/\/tyxmatty\.github\.io\/jay-website\/([^"]+)"/)?.[1];
+  assert.ok(image, 'og:image missing');
+  const png = readFileSync(new URL(`../${image}`, import.meta.url));
+  // PNG header: width and height are big-endian at bytes 16 and 20.
+  assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [1200, 630]);
+  assert.match(html, /og:image:width" content="1200"[\s\S]*og:image:height" content="630"/);
+});
+
 // The shape of Jay-C's v0.5.4 release (api.github.com), trimmed.
 test('pickInstaller takes the x64 setup and the version without the v', () => {
   const release = {

@@ -106,7 +106,8 @@ export const megabytes = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 
 // ---------- The page (skipped when the tests import this file in Node) ----------
 
-if (globalThis.document) {
+// Only on the site itself: the tests (Node) and the banner page (social/banner.html) just borrow ICONS.
+if (globalThis.document?.getElementById('theme-toggle')) {
   const KEY = 'jay.site';
   const root = document.documentElement;
   let saved = {};
