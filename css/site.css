@@ -1,0 +1,518 @@
+/* The Jay website. Colors, corners and fonts come from theme.css (Jay-C's tokens, unchanged); the
+   base, buttons, wolf and glow follow the apps' app.css (Jay-C, Jay-H). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px; /* the sticky top bar */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 var(--font);
+  font-feature-settings: 'cv11', 'ss03';
+  letter-spacing: -0.006em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+a {
+  color: var(--accent-text, var(--accent));
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 10;
+  padding: 8px 14px;
+  border-radius: var(--radius-control);
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- The wolf (two masks in the style's colors, as in the apps) ---------- */
+
+.wolf-mark {
+  position: relative;
+  display: inline-block;
+  flex: none;
+}
+
+.wolf-mark::before,
+.wolf-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-contrast);
+  mask: url('../assets/brand/wolf-fill.png') center / contain no-repeat;
+}
+
+.wolf-mark::after {
+  background: var(--accent);
+  mask-image: url('../assets/brand/wolf-lines.png');
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color var(--dur-fast),
+    border-color var(--dur-fast),
+    box-shadow var(--dur),
+    transform var(--dur-fast);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--glow), var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background: var(--surface-2);
+  color: var(--text);
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: var(--border);
+  border-color: var(--border-strong);
+  box-shadow: none;
+}
+
+.btn-icon,
+.btn-icon svg {
+  display: inline-grid;
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn,
+.lang-btn {
+  display: inline-grid;
+  place-items: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--dur-fast), border-color var(--dur-fast);
+}
+
+.icon-btn:hover,
+.lang-btn:hover {
+  background: var(--border);
+  border-color: var(--border-strong);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px clamp(16px, 4vw, 40px);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter: blur(var(--overlay-blur));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.topnav {
+  display: flex;
+  gap: 4px;
+  margin: 0 auto 0 18px;
+}
+
+.topnav a {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Three dots, each painted with its own style's tokens (like the apps' style previews). */
+.style-switch {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-control) + 4px);
+  background: var(--surface-2);
+}
+
+.style-switch button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  cursor: pointer;
+}
+
+.style-switch button > span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: inset 0 0 0 2px var(--surface);
+}
+
+.style-switch button[aria-checked='true'] {
+  background: var(--surface-3);
+  box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--border);
+}
+
+/* ---------- Hero (Jay-C's lobby: the thin-line wolf and two lights) ---------- */
+
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+main::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 900px;
+  z-index: -1;
+  background:
+    radial-gradient(40% 50% at 25% 30%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(35% 45% at 80% 60%, color-mix(in srgb, var(--accent-2, var(--accent)) 10%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 320px) minmax(0, 600px);
+  justify-content: center;
+  align-items: center;
+  gap: clamp(28px, 6vw, 80px);
+  padding: clamp(48px, 9vw, 110px) clamp(16px, 4vw, 40px) clamp(40px, 7vw, 90px);
+}
+
+.hero-mark {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+/* Big enough for the original thin-line drawing: just the lines. */
+.hero-mark::before {
+  content: none;
+}
+
+.hero-mark::after {
+  mask-image: url('../assets/brand/wolf-lineart.png');
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(36px, 5.6vw, 60px);
+  font-weight: 780;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.hero-lead {
+  margin: 18px 0 0;
+  max-width: 34em;
+  font-size: clamp(17px, 1.6vw, 19px);
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hint {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Apps ---------- */
+
+.apps,
+.why {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 40px) 40px;
+}
+
+.section-title {
+  margin: 0 0 22px;
+  font-size: clamp(28px, 3.4vw, 38px);
+  font-weight: 750;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  margin-bottom: 22px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Every other app puts its picture first, so the page zigzags. */
+.app:nth-of-type(even) .app-shot {
+  order: -1;
+}
+
+.app-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app h3 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.app-kicker {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-text, var(--accent));
+}
+
+.app-text > p {
+  margin: 16px 0 0;
+}
+
+.app-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-tile);
+  background: var(--accent-soft);
+  color: var(--accent-text, var(--accent));
+}
+
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.app-points {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+}
+
+.app-points li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.app-points li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.app-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.app-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Why Jay ---------- */
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-grid li {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.why-grid h3 {
+  margin: 14px 0 6px;
+  font-size: 19px;
+}
+
+.why-grid p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  max-width: 1180px;
+  margin: 24px auto 0;
+  padding: 28px clamp(16px, 4vw, 40px) 40px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.footer p {
+  margin: 0 auto 0 0;
+}
+
+/* ---------- Narrow windows ---------- */
+
+@media (max-width: 860px) {
+  .hero,
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-mark {
+    width: 140px;
+  }
+
+  .app:nth-of-type(even) .app-shot {
+    order: 0;
+  }
+
+  .topnav {
+    display: none;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "jay-website",
+  "private": true,
+  "description": "The website of the Jay line",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 5180",
+    "test": "node --test"
+  }
+}

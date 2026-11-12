@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jay — light apps for Windows</title>
+    <meta name="description" content="The Jay line: open-source apps for calls, audio, documents and study on Windows. No accounts, no ads, built on Rust." />
+    <link rel="icon" href="assets/brand/favicon.png" />
+    <!-- Before first paint: the saved style, theme and language (same keys the page writes). -->
+    <script>
+      (function () {
+        var s = {};
+        try { s = JSON.parse(localStorage.getItem('jay.site') || '{}'); } catch (e) {}
+        var dark = s.theme ? s.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        var root = document.documentElement;
+        root.dataset.theme = dark ? 'dark' : 'light';
+        root.dataset.style = ['calm', 'neon', 'soft'].indexOf(s.style) >= 0 ? s.style : 'calm';
+      })();
+    </script>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <script type="module" src="js/site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#apps" data-i18n="skip">Skip to the apps</a>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Jay">
+        <span class="brand-mark wolf-mark" aria-hidden="true"></span>
+        <span class="brand-name">Jay</span>
+      </a>
+      <nav class="topnav" aria-label="Sections" data-i18n-label="nav">
+        <a href="#apps" data-i18n="navApps">Apps</a>
+        <a href="#why" data-i18n="navWhy">Why Jay</a>
+      </nav>
+      <div class="style-switch" role="radiogroup" aria-label="Style" data-i18n-label="style">
+        <button type="button" role="radio" data-style-value="calm" aria-label="Calm" data-i18n-label="calm"><span data-style-preview="calm"></span></button>
+        <button type="button" role="radio" data-style-value="neon" aria-label="Neon" data-i18n-label="neon"><span data-style-preview="neon"></span></button>
+        <button type="button" role="radio" data-style-value="soft" aria-label="Soft" data-i18n-label="soft"><span data-style-preview="soft"></span></button>
+      </div>
+      <button type="button" class="icon-btn" id="theme-toggle"></button>
+      <button type="button" class="lang-btn" id="lang-toggle" lang="pt-BR">PT</button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <span class="hero-mark wolf-mark" aria-hidden="true"></span>
+        <div class="hero-text">
+          <h1 data-i18n="heroTitle">Light apps that stay out of your way</h1>
+          <p class="hero-lead" data-i18n="heroLead">The Jay line: calls, audio, documents and study for Windows. Open source, no accounts, no ads, with the heavy lifting done in Rust.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://github.com/TyxMatty/Jay-H/releases/latest" data-download="jay-h">
+              <span class="btn-icon" data-icon="download"></span><span data-i18n="heroCta">Get Jay-H, the hub</span>
+            </a>
+            <a class="btn btn-secondary" href="#apps" data-i18n="heroSecondary">See the apps</a>
+          </div>
+          <p class="hint" data-i18n="heroHint">Jay-H installs, updates and opens every Jay app from one window.</p>
+        </div>
+      </section>
+
+      <section id="apps" class="apps" aria-labelledby="apps-title">
+        <h2 id="apps-title" class="section-title" data-i18n="appsTitle">The apps</h2>
+
+        <article class="app" id="jay-c" data-repo="TyxMatty/Jay-C">
+          <div class="app-text">
+            <div class="app-head">
+              <span class="app-icon" data-icon="video"></span>
+              <div><h3>Jay-C</h3><p class="app-kicker" data-i18n="cKicker">Calls and streams</p></div>
+            </div>
+            <p data-i18n="cLead">Voice and video calls, game and screen streaming up to 1080p60, and servers with rooms and text channels, on a server you or a friend runs in Docker.</p>
+            <ul class="app-points">
+              <li data-i18n="c1">Clear voice that doesn't muffle your other apps.</li>
+              <li data-i18n="c2">Stream a game, a window or the whole screen, with its sound.</li>
+              <li data-i18n="c3">Up to 16 people per room. No accounts, no ads.</li>
+            </ul>
+            <div class="app-actions">
+              <a class="btn" href="https://github.com/TyxMatty/Jay-C/releases/latest" data-download="jay-c"><span class="btn-icon" data-icon="download"></span><span class="dl-label" data-i18n="download">Download</span></a>
+              <a class="btn btn-secondary" href="https://github.com/TyxMatty/Jay-C"><span class="btn-icon" data-icon="github"></span>GitHub</a>
+            </div>
+          </div>
+          <img class="app-shot" src="assets/shots/jay-c.webp" width="1266" height="793" loading="lazy" alt="A Jay-C call: someone's stream up front, the cards of everyone in the room and the control bar" data-i18n-alt="cAlt" />
+        </article>
+
+        <article class="app" id="jay-a" data-repo="TyxMatty/Jay-A">
+          <div class="app-text">
+            <div class="app-head">
+              <span class="app-icon" data-icon="waveform"></span>
+              <div><h3>Jay-A</h3><p class="app-kicker" data-i18n="aKicker">Audio</p></div>
+            </div>
+            <p data-i18n="aLead">Filters for your microphone, which Jay-C can use in its calls, plus a soundboard with global hotkeys, an audio editor and a batch converter.</p>
+            <ul class="app-points">
+              <li data-i18n="a1">AI noise removal takes out keyboards, clicks and fans.</li>
+              <li data-i18n="a2">Your own chain of filter, gate, EQ, compressor, de-esser and limiter.</li>
+              <li data-i18n="a3">Lives in the tray and only opens the microphone while it's in use.</li>
+            </ul>
+            <div class="app-actions">
+              <a class="btn" href="https://github.com/TyxMatty/Jay-A/releases/latest" data-download="jay-a"><span class="btn-icon" data-icon="download"></span><span class="dl-label" data-i18n="download">Download</span></a>
+              <a class="btn btn-secondary" href="https://github.com/TyxMatty/Jay-A"><span class="btn-icon" data-icon="github"></span>GitHub</a>
+            </div>
+          </div>
+          <img class="app-shot" src="assets/shots/jay-a.webp" width="1100" height="760" loading="lazy" alt="Jay-A's effect chain: noise removal, filter, gate, equalizer, compressor and de-esser" data-i18n-alt="aAlt" />
+        </article>
+
+        <article class="app" id="jay-e" data-repo="TyxMatty/Jay-E">
+          <div class="app-text">
+            <div class="app-head">
+              <span class="app-icon" data-icon="document"></span>
+              <div><h3>Jay-E</h3><p class="app-kicker" data-i18n="eKicker">Documents and media</p></div>
+            </div>
+            <p data-i18n="eLead">Read, edit and convert documents, images and videos without an office suite.</p>
+            <ul class="app-points">
+              <li data-i18n="e1">Word, OpenDocument and PDF edited in place.</li>
+              <li data-i18n="e2">Markdown and LaTeX with a live preview, math included.</li>
+              <li data-i18n="e3">Convert photos and videos in batches; cut and join video without re-encoding.</li>
+            </ul>
+            <div class="app-actions">
+              <a class="btn" href="https://github.com/TyxMatty/Jay-E/releases/latest" data-download="jay-e"><span class="btn-icon" data-icon="download"></span><span class="dl-label" data-i18n="download">Download</span></a>
+              <a class="btn btn-secondary" href="https://github.com/TyxMatty/Jay-E"><span class="btn-icon" data-icon="github"></span>GitHub</a>
+            </div>
+          </div>
+          <img class="app-shot" src="assets/shots/jay-e.webp" width="1100" height="720" loading="lazy" alt="Jay-E with a LaTeX article open: the source on the left and the compiled PDF on the right" data-i18n-alt="eAlt" />
+        </article>
+
+        <article class="app" id="jay-s" data-repo="TyxMatty/Jay-S">
+          <div class="app-text">
+            <div class="app-head">
+              <span class="app-icon" data-icon="study"></span>
+              <div><h3>Jay-S</h3><p class="app-kicker" data-i18n="sKicker">Study</p></div>
+            </div>
+            <p data-i18n="sLead">Exams, mock tests and flashcards made from your own material by Jay-AI, a model that runs on your computer.</p>
+            <ul class="app-points">
+              <li data-i18n="s1">Bring PDFs, Word files, text or photos of your notes.</li>
+              <li data-i18n="s2">Exam styles such as ENEM, UEPG and UEM, with answer keys and analysed results.</li>
+              <li data-i18n="s3">Nothing leaves your PC.</li>
+            </ul>
+            <div class="app-actions">
+              <a class="btn" href="https://github.com/TyxMatty/Jay-S/releases/latest" data-download="jay-s"><span class="btn-icon" data-icon="download"></span><span class="dl-label" data-i18n="download">Download</span></a>
+              <a class="btn btn-secondary" href="https://github.com/TyxMatty/Jay-S"><span class="btn-icon" data-icon="github"></span>GitHub</a>
+            </div>
+          </div>
+          <img class="app-shot" src="assets/shots/jay-s.webp" width="1280" height="800" loading="lazy" alt="Jay-S's exams: UEPG's 2025 entrance exams, ready to download or take, each with its official answer key" data-i18n-alt="sAlt" />
+        </article>
+
+        <article class="app" id="jay-h" data-repo="TyxMatty/Jay-H">
+          <div class="app-text">
+            <div class="app-head">
+              <span class="app-icon" data-icon="apps"></span>
+              <div><h3>Jay-H</h3><p class="app-kicker" data-i18n="hKicker">The hub</p></div>
+            </div>
+            <p data-i18n="hLead">One app to install, update and open every Jay app, and it updates itself the same way.</p>
+            <ul class="app-points">
+              <li data-i18n="h1">The installed version and the latest one on GitHub, side by side.</li>
+              <li data-i18n="h2">Installers only run if their SHA-256 matches GitHub's.</li>
+              <li data-i18n="h3">"Update all" with one click.</li>
+            </ul>
+            <div class="app-actions">
+              <a class="btn" href="https://github.com/TyxMatty/Jay-H/releases/latest" data-download="jay-h"><span class="btn-icon" data-icon="download"></span><span class="dl-label" data-i18n="download">Download</span></a>
+              <a class="btn btn-secondary" href="https://github.com/TyxMatty/Jay-H"><span class="btn-icon" data-icon="github"></span>GitHub</a>
+            </div>
+          </div>
+          <img class="app-shot" src="assets/shots/jay-h.webp" width="1180" height="760" loading="lazy" alt="Jay-H's products: a card per Jay app with its installed version, the latest one and the Update button" data-i18n-alt="hAlt" />
+        </article>
+      </section>
+
+      <section id="why" class="why" aria-labelledby="why-title">
+        <h2 id="why-title" class="section-title" data-i18n="whyTitle">Why Jay</h2>
+        <ul class="why-grid">
+          <li><span class="app-icon" data-icon="code"></span><h3 data-i18n="w1Title">Open source</h3><p data-i18n="w1">Every app is MIT-licensed, with its code on GitHub.</p></li>
+          <li><span class="app-icon" data-icon="shield"></span><h3 data-i18n="w2Title">No accounts, no ads</h3><p data-i18n="w2">Nothing to sign up for, nothing tracking you.</p></li>
+          <li><span class="app-icon" data-icon="bolt"></span><h3 data-i18n="w3Title">Light</h3><p data-i18n="w3">Tauri and Rust instead of a bundled browser: small installers, little memory.</p></li>
+          <li><span class="app-icon" data-icon="palette"></span><h3 data-i18n="w4Title">One look</h3><p data-i18n="w4">The Calm, Neon and Soft styles, light and dark, in English and Portuguese, in every app. Try them up top.</p></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="brand-mark wolf-mark" aria-hidden="true"></span>
+      <p data-i18n="footer">Made by TyxMatty. MIT License. Windows 10 or newer, x64.</p>
+      <a href="https://github.com/TyxMatty" data-i18n="footerGithub">TyxMatty on GitHub</a>
+    </footer>
+  </body>
+</html>
